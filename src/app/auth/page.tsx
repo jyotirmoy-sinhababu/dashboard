@@ -41,7 +41,7 @@ const signupSchema = yup.object({
 
 type SignupFormValues = yup.InferType<typeof signupSchema>;
 
-const page = () => {
+const AuthPage = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [signupError, setSignupError] = useState('');
@@ -159,4 +159,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default AuthPage;

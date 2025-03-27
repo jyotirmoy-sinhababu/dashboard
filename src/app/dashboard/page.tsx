@@ -5,20 +5,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import { useRouter } from 'next/navigation';
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from '@/components/ui/card';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+
 import { AlertCircle, Loader2 } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
@@ -56,7 +44,6 @@ interface Post {
 }
 
 const Dashboard = () => {
-  const [loginToken, setLoginToken] = useState<string | null>(null);
   const [posts, setPosts] = useState<Post[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -73,7 +60,6 @@ const Dashboard = () => {
       if (!token) {
         router.push('/auth');
       }
-      setLoginToken(token);
     };
     checkAuth();
     fetchPosts();
